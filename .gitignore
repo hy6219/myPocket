@@ -6,8 +6,13 @@
 기획서/
 #metadata
 .metadata/
+#servers
+Servers/
 # Compiled class file
 *.class
+*.classpath
+/target/
+/bin/
 
 # Log file
 *.log
