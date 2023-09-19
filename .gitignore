@@ -1,5 +1,7 @@
 # commit message
 .gitmessage.txt
+# hwp
+*.hwp
 # Compiled class file
 *.class
 
