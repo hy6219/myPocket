@@ -4,6 +4,8 @@
 *.hwp
 # docs folder
 기획서/
+#metadata
+.metadata
 # Compiled class file
 *.class
 
