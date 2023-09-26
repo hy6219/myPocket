@@ -3,7 +3,7 @@ server:
 spring:
       datasource:
           url: jdbc:oracle:thin:@127.0.0.1:1521:XE
-          username: root
+          username: SYSTEM
           password: 1234
           driver-class-name: oracle.jdbc.driver.OracleDriver
       jpa:
@@ -15,4 +15,10 @@ spring:
       logging:
         level:
           org.hibernate.SQL: debug
-          org.hibernate.type: trace # 실제 들어가는 파라미터값 찍어주는 설정         
+          org.hibernate.type: trace # 실제 들어가는 파라미터값 찍어주는 설정   
+       
+#금융결제원 api
+financial:
+         confirm:
+              clientId: 3ac1b0d9-0575-4cc4-8c53-541642a1face
+              clientSecret: b4664608-7625-4d6a-b837-33547f97167c    
