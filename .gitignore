@@ -17,6 +17,10 @@ Servers/
 *.yaml
 #gradle
 gradle/
+gradlew
+gradlew.bat
+settings.gradle
+build.gradle
 # Log file
 *.log
 
