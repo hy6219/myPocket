@@ -4,9 +4,18 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ConfirmConfig {
-	@Value("${financial.confirm.clientId}")
-	private String clientId;
-	@Value("${financial.confirm.clientSecret}")
-	private String clientSecret;
+public class ExercisedbConfig {
+	@Value("${exercisedb.api-key}")
+	private String apiKey;
+	@Value("${exercisedb.host}")
+	private String host;
+	
+	public String getApiKey() {
+		return apiKey;
+	}
+	public String getHost() {
+		return host;
+	}
+	
+	
 }
