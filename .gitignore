@@ -13,8 +13,7 @@ Servers/
 *.classpath
 /target/
 /bin/
-#yaml
-*.yaml
+
 #gradle
 gradle/
 gradlew
