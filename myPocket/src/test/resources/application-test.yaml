@@ -1,5 +1,5 @@
 server:
-      port: 9090
+      port: 8082
 spring:
       datasource:
           url: jdbc:oracle:thin:@127.0.0.1:1521:XE
@@ -16,4 +16,12 @@ spring:
         level:
           org.hibernate.SQL: debug
           org.hibernate.type: trace # 실제 들어가는 파라미터값 찍어주는 설정   
-#금융결제원 api
+#spring-security
+      security:
+          user:
+            name: myPocket
+            password: myPocket                   
+
+      profiles:
+        include:
+          EX-API-KEY

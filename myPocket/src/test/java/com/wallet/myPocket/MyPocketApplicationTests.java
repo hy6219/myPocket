@@ -13,8 +13,10 @@ class MyPocketApplicationTests {
 	
 	@Test
 	void contextLoads() {
-		   
-	      
+		 String key = environment.getProperty("ex-api-key");  
+		 String host = environment.getProperty("ex-host");  
+	     
+		 System.out.println("key: "+key+", host: "+host);
 	}
 
 }

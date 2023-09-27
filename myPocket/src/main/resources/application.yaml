@@ -1,5 +1,5 @@
 server:
-      port: 8080
+      port: 8085
 spring:
       datasource:
           url: jdbc:oracle:thin:@127.0.0.1:1521:XE
@@ -20,10 +20,8 @@ spring:
       security:
           user:
             name: myPocket
-            password: myPocket          
-#exercise db
-exercisedb:
-      api-key : e2587afac9mshf31f815c5abd30ep1d0d8cjsna0b3f00cdf14
-      host: exercisedb.p.rapidapi.com            
+            password: myPocket                   
 
-      
+      profiles:
+        include:
+          EX-API-KEY
