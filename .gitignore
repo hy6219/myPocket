@@ -17,6 +17,11 @@ Servers/
 *.yaml
 #properties
 *.properties
+#Q files
+build/
+generated/
+build/generated
+build/generated/querydsl
 #gradle
 gradle/
 gradlew
