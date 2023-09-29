@@ -30,7 +30,7 @@ settings.gradle
 build.gradle
 
 #private files_images(exercisedb gifs)
-C:\myPocket\myPocket\src\main\resources\img\exercise
+*.gif
 # Log file
 *.log
 
