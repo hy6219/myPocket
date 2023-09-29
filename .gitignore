@@ -32,8 +32,6 @@ build.gradle
 #private files_images(exercisedb gifs)
 *.gif
 /myPocket/src/main/resources/img/exercise
-/myPocket/myPocket/src/main/resources/img/exercise
-/src/main/resources/img/exercise
 # Log file
 *.log
 
