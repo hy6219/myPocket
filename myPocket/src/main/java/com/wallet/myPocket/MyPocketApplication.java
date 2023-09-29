@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConf
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @EnableConfigurationProperties
-@SpringBootApplication(exclude = SqlInitializationAutoConfiguration.class)
+@SpringBootApplication(scanBasePackages= {"com.wallet.myPocket"},exclude = SqlInitializationAutoConfiguration.class)
 public class MyPocketApplication {
 
 	public static void main(String[] args) {

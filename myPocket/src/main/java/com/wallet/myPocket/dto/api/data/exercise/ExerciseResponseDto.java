@@ -1,13 +1,27 @@
 package com.wallet.myPocket.dto.api.data.exercise;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallet.myPocket.entity.api.data.exercise.Equipment;
+import com.wallet.myPocket.entity.api.data.exercise.Exercise;
+import com.wallet.myPocket.entity.api.data.exercise.Instructions;
+import com.wallet.myPocket.entity.api.data.exercise.Muscle;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class ExerciseResponseDto {
 	@JsonProperty(value = "bodyPart")
 	private String bodyPart;
@@ -26,80 +40,44 @@ public class ExerciseResponseDto {
 	@JsonProperty(value = "instructions")
 	private List<String> instructions = new ArrayList<>();
 	
-	
-	
-	public ExerciseResponseDto() {
-		super();
-		// TODO Auto-generated constructor stub
+	public static Exercise toEntity(ExerciseResponseDto dto, String local) {
+		
+		return Exercise.builder()
+				.name(dto.getName())
+				.classification(dto.getBodyPart())
+				.gif(local)//로컬저장주소
+				.build();
 	}
 	
-	public ExerciseResponseDto(String bodyPart, String equipment, String gifUrl, String id, String name, String target,
-			List<String> secondaryMuscles, List<String> instructions) {
-		super();
-		this.bodyPart = bodyPart;
-		this.equipment = equipment;
-		this.gifUrl = gifUrl;
-		this.id = id;
-		this.name = name;
-		this.target = target;
-		this.secondaryMuscles = secondaryMuscles;
-		this.instructions = instructions;
+	public static Equipment toEquipment(ExerciseResponseDto dto) {
+		return Equipment.builder()
+				.name(dto.getEquipment())
+				.build();
 	}
-	public String getBodyPart() {
-		return bodyPart;
-	}
-	public void setBodyPart(String bodyPart) {
-		this.bodyPart = bodyPart;
-	}
-	public String getEquipment() {
-		return equipment;
-	}
-	public void setEquipment(String equipment) {
-		this.equipment = equipment;
-	}
-	public String getGifUrl() {
-		return gifUrl;
-	}
-	public void setGifUrl(String gifUrl) {
-		this.gifUrl = gifUrl;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getTarget() {
-		return target;
-	}
-	public void setTarget(String target) {
-		this.target = target;
-	}
-	public List<String> getSecondaryMuscles() {
-		return secondaryMuscles;
-	}
-	public void setSecondaryMuscles(List<String> secondaryMuscles) {
-		this.secondaryMuscles = secondaryMuscles;
-	}
-	public List<String> getInstructions() {
-		return instructions;
-	}
-	public void setInstructions(List<String> instructions) {
-		this.instructions = instructions;
-	}
-	@Override
-	public String toString() {
-		return "ExerciseResponseDto [bodyPart=" + bodyPart + ", equipment=" + equipment + ", gifUrl=" + gifUrl + ", id="
-				+ id + ", name=" + name + ", target=" + target + ", secondaryMuscles=" + secondaryMuscles
-				+ ", instructions=" + instructions + "]";
-	}
-
-
 	
+	public static Set<Muscle> toMuscle(ExerciseResponseDto dto) {
+		Set<Muscle> muscles = new LinkedHashSet<>();
+		List<String> secondary = dto.getSecondaryMuscles();
+		
+		for(int i = 0; i < secondary.size(); i++) {
+			Muscle m = Muscle.builder()
+					.abbr(secondary.get(i))
+					.build();
+			muscles.add(m);
+		}
+		return muscles;
+	}
+	
+	public static List<Instructions> toInstruction(ExerciseResponseDto dto){
+		List<Instructions> inst = new ArrayList<>();
+		List<String> origin = dto.getInstructions();
+		
+		for(int i = 0; i < origin.size(); i++) {
+			Instructions ins = Instructions.builder()
+					.description(origin.get(i))
+					.build();
+			inst.add(ins);
+		}
+		return inst;
+	}
 }

@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -45,6 +44,7 @@ public class Exercise {
 	@Column(name = "GIF")
 	private String gif;
 	
+	@Setter
 	@OneToMany(mappedBy="muscleId")
 	private Set<Muscle> muscles = new LinkedHashSet<>();//중복x, 순서대로 넣기
 	
