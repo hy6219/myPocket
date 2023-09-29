@@ -2,16 +2,23 @@ server:
       port: 8082
 spring:
       datasource:
-          url: jdbc:oracle:thin:@127.0.0.1:1521:XE
-          username: SYSTEM
-          password: 1234
-          driver-class-name: oracle.jdbc.driver.OracleDriver
+          url: jdbc:h2:tcp://localhost/~/test
+          username: sa
+          password: 
+          driver-class-name: org.h2.Driver
+      sql:
+        init:
+          mode: always 
+      h2:
+        console:
+          enabled: true    
       jpa:
         hibernate:
           ddl-auto: create
         properties:
           hibernate:
            format_sql: true
+        defer-datasource-initialization: true   
       logging:
         level:
           org.hibernate.SQL: debug
@@ -23,5 +30,4 @@ spring:
             password: myPocket                   
 
       profiles:
-        include:
-          EX-API-KEY
+        include: EX-API-KEY

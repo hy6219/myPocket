@@ -50,6 +50,9 @@ dependencies {
 	testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
 	testImplementation 'org.junit.platform:junit-platform-launcher:1.9.0'
 	testImplementation 'org.junit.vintage:junit-vintage-engine:5.9.0'
+	// https://mvnrepository.com/artifact/com.h2database/h2
+	testImplementation 'com.h2database:h2:2.2.220'
+	
 	testCompileOnly 'org.projectlombok:lombok:1.18.30'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
 }
